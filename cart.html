@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tech2etc Ecommerce Tutorial</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <section id="header">
+            <a href="index.html"><img src="img/logo.png" class="logo" alt=""></a>
+
+            <div>
+
+                <ul id="navbar">
+
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li id="lg-bag"><a class="active" href="cart.html"><i class='bx bxs-cart'></i></a></li>
+                    <a href="#" id="close"><i class="far fa-times"></i></a>
+                </ul>
+            </div>
+            <div id="mobile">
+                <a href="cart.html"><i class='bx bxs-cart'></i></a>
+                <i id="bar" class="fas fa-outdent"></i> 
+            </div>
+        </section>
+
+        <section id="page-header" class="about-header">
+            <h2>#Let's_Talk </h4>
+                <p> LEAVE A MESSAGE, We love to hear from you</p>
+        </section>
+
+        <section id="cart" class="section-p1">
+            <table id="cartTable" width="100%">
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Product</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+
+                <tbody id="cart-items">
+                    <tr>
+                        <td><i class="far fa-times-circle delete-icon"></i><a href="#"></a></td>
+                        <td><img src="img/products/f1.jpg" alt=""></td>
+                        <td>Cartoon Astronaut T-Shirts</td>
+                        <td>$118.19</td>
+                        <td><input type="number" value="1"></td>
+                        <td>$118.19</td>
+                    </tr>
+                    <tr>
+                        <td><i class="far fa-times-circle delete-icon"></i><a href="#"></a></td>
+                        <td><img src="img/products/f1.jpg" alt=""></td>
+                        <td>Cartoon Astronaut T-Shirts</td>
+                        <td>$118.19</td>
+                        <td><input type="number" value="1"></td>
+                        <td>$118.19</td>
+                    </tr>
+                    <tr>
+                        <td><i class="far fa-times-circle delete-icon"></i><a href="#"></a></td>
+                        <td><img src="img/products/f1.jpg" alt=""></td>
+                        <td>Cartoon Astronaut T-Shirts</td>
+                        <td>$118.19</td>
+                        <td><input type="number" value="1"></td>
+                        <td>$118.19</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="cart-add" class="section-p1">
+            <div id="coupon">
+                <h3>Apply Coupon</h3>
+                <div>
+                    <input type="text" placeholder="Enter Your Coupon">
+                    <button class="normal">Apply</button>
+                </div>
+            </div>
+
+            <div id="subtotal">
+                <h3>Cart Totals</h3>
+                <table>
+                    <tr>
+                        <td>Cart Subtotal</td>
+                        <td>$ <?php echo number_format($subtotal, 2); ?></td>
+                    </tr>
+                    <tr>
+                        <td>Shipping</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td><strong>$ <?php echo number_format($subtotal, 2); ?></strong></td>
+                    </tr>
+                </table>
+                <button class="normal">Proceed To Checkout</button>
+            </div>
+        </section>
+
+        <footer class="section-p1">
+            <div class="col">
+                <img class="logo" src="img/logo.png" alt="logo">
+                <h4>Contant Us</h4>
+                <p><strong>Address</strong>562 Wellington Road Street 32 Son Francisco</p>
+                <p><strong>Phone</strong>+92 3022006260</p>
+                <p><strong>Hours</strong>10:100-18:00 , Mon-Sat</p>
+        <div class="follow">
+            <h4>Follow Us</h4>
+        <div class="icons">
+            <i class='bx bxl-facebook'></i>
+            <i class='bx bxl-instagram'></i>
+            <i class='bx bxl-pinterest'></i>
+            <i class='bx bxl-twitter'></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Term & Condition</a>
+        <a href="#">Contact Us</a>
+    </div>
+
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">My Account</a>
+        <a href="#">Sing In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Order Help</a>
+    </div>
+
+    <div class="copyright">
+        <p>© 2024, Shayan Azfar - Ecommerce Website</p>
+    </div>
+
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            var cartTableBody = document.getElementById('cart-items');
+
+            function renderCart() {
+                cartTableBody.innerHTML = '';
+                cartItems.forEach(function(item, index) {
+                    var row = document.createElement('tr');
+                    row.setAttribute('data-index', index);
+
+                    row.innerHTML = `
+                        <td><i class="far fa-times-circle delete-icon"></i><a href="#"></a></td>
+                        <td><img src="${item.image}" alt=""></td>
+                        <td>${item.name}</td>
+                        <td>${item.price}</td>
+                        <td><input type="number" value="${item.quantity}"></td>
+                        <td>${item.price}</td>
+                    `;
+
+                    cartTableBody.appendChild(row);
+                });
+
+                // Add event listeners to the delete icons
+                var deleteIcons = document.querySelectorAll('.delete-icon');
+                deleteIcons.forEach(function(icon) {
+                    icon.addEventListener('click', function() {
+                        var row = this.closest('tr');
+                        var index = row.getAttribute('data-index');
+                        cartItems.splice(index, 1);  // Remove the item from cartItems array
+                        localStorage.setItem('cartItems', JSON.stringify(cartItems));  // Update local storage
+                        renderCart();  // Re-render the cart
+                    });
+                });
+            }
+
+            // Initial render
+            renderCart();
+        });
+    </script>
+
+
+
+        <script src="script.js"></script>
+    </body>
+</html>
